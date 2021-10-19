@@ -1,0 +1,5 @@
+# Project exclude paths
+/project/target/
+/target/
+# null folder is when windows.
+/null/
