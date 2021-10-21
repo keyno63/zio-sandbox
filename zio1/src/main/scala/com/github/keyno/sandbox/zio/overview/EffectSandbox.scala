@@ -11,19 +11,19 @@ object EffectSandbox extends zio.App {
     for {
       _ <- putStrLn("Hello! What is your name?")
       n <- getStrLn
-      z <- new Success1().createZioSucceed(n.toInt)
+      z <- new FromSuccessValues().createZioSucceed(n)
       _ <- putStrLn("Hello, " + z + ", good to meet you!")
     } yield ()
 }
 
-class Success1 {
-  def createZioSucceed(intVal: Int): UIO[Int] = {
-    ZIO.succeed(intVal)
+class FromSuccessValues {
+  def createZioSucceed(intStr: String): UIO[Int] = {
+    ZIO.succeed(intStr.toInt)
   }
 
   // same as createZioSucceed
-  def createTaskSucceed(intVal: Int): UIO[Int] = {
-    Task.succeed(intVal)
+  def createTaskSucceed(intStr: String): UIO[Int] = {
+    Task.succeed(intStr.toInt)
   }
 
   // totally. if not exist side-effect
