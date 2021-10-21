@@ -31,3 +31,14 @@ class FromSuccessValues {
     ZIO.effectTotal(intVal)
   }
 }
+
+class FromFailureValues {
+  def createZioFailure() = {
+    ZIO.fail("failed")
+  }
+
+  def createTaskFailure() = {
+    Task.fail(new Exception("failed"))
+  }
+
+}
