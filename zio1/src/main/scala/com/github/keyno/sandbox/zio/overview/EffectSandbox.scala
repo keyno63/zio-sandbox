@@ -40,5 +40,8 @@ class FromFailureValues {
   def createTaskFailure() = {
     Task.fail(new Exception("failed"))
   }
+}
+
+class FromScalaValues {
 
 }
