@@ -33,12 +33,12 @@ class FromSuccessValues {
 }
 
 class FromFailureValues {
-  def createZioFailure() = {
-    ZIO.fail("failed")
+  def createZioFailure(message: String) = {
+    ZIO.fail(message)
   }
 
-  def createTaskFailure() = {
-    Task.fail(new Exception("failed"))
+  def createTaskFailure(exception: Exception) = {
+    Task.fail(exception)
   }
 }
 
