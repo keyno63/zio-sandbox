@@ -3,6 +3,8 @@ package com.github.keyno.sandbox.zio.overview
 import zio.console.{getStrLn, putStrLn}
 import zio.{IO, Task, UIO, ZIO}
 
+import scala.io.StdIn
+
 object EffectSandbox extends zio.App {
   final def run(args: List[String]) =
     myAppLogic.exitCode
@@ -92,4 +94,17 @@ class FromScalaValues {
     }
   }
 
+}
+
+class FromSideEffect {
+
+  def createFromStdIn(): Task[String] = {
+    // for zio1.x
+    ZIO.effect(StdIn.readLine())
+  }
+
+  // for totally effect
+  def createTotallyEffect(line:String): UIO[Unit] = {
+    ZIO.effectTotal(println(line))
+  }
 }
