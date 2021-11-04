@@ -108,3 +108,5 @@ class FromSideEffect {
     ZIO.effectTotal(println(line))
   }
 }
+
+// TODO: Asynchronous Side-Effects, Blocking Side-Effects
